@@ -6,12 +6,24 @@ from pandas import DataFrame
 import re
 import pandas as pd
 
+###folder path setting
+#放入完成搜尋後output資料夾路徑
+finish_dir = ''
+#放入帳號資料庫路徑
+search_path = ''
+#放入批次待查找ID的URL資料夾路徑
+to_do_dir =''
+#放入要output csv檔案路徑
+output_dir=''
+
+
+
 # def  function 
 # coding = utf-8
 
 #id_finder
 ##use regular expression to find id in url
-#放入要拿出id的URL檔案路徑
+
 data_path=''
 def data_process(data_path):
     #load data
@@ -24,8 +36,7 @@ def data_process(data_path):
     
     return pattern_find_id
 
-#keyword searcher
-#use regular expression to find id in url
+###search id in database
 
 keyword = []
  
@@ -104,12 +115,12 @@ def search(search_path):
                 search(full_path)
     return [results,filepath]
     #return filepath
-#put your account database path
-#放入帳號資料庫路徑
-search_path = ''
 
-#function for account:
-#1.#account_result_spilt
+
+
+###function for account:
+
+#1.account_result_spilt
 def result_spilt(res):
     k=[]
     for a in res:
@@ -120,7 +131,6 @@ def result_spilt(res):
 
 #2.score
 #change input name as data
-
 #function for path_result
 #path_spilt
 def path_spilt(path):
@@ -134,18 +144,15 @@ def path_spilt(path):
 
 
 
-# In[ ]:
 finish_list =[]
-#放入完成搜尋後output資料夾路徑
-finish_dir = ''
+
 dataname=re.compile(r'.+(?=\.)')
 if os.path.exists(finish_dir):
     for file_name in os.listdir(finish_dir):
         file_name_tmp=dataname.match(file_name)
         finish_list.append(file_name_tmp.group())
 todo_list=[]
-#放入待查找ID的URL檔案路徑
-to_do_dir =''
+
 if os.path.exists(finish_dir):
     for file_name in os.listdir(to_do_dir):
         file_name_tmp=dataname.match(file_name)
@@ -194,8 +201,7 @@ else:
         #print(path)
         print("....")
         print("output csv file:")
-        #放入要output csv檔案路徑
-        output_dir=''
+        
         output_path = os.path.join(output_dir,todo)+'.csv'
         print(output_path)
         results_account.to_csv(output_path, index = False, header=True)
