@@ -1,51 +1,35 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
-
 import my_module_original as my
 import networkx as nx
 import numpy as np
-#import chart_studio.plotly as py
-#import plotly.graph_objs as go
-#import glob
-#import networkx.algorithms.community as nxcom
-
-#get_ipython().run_line_magic('matplotlib', 'notebook')
-
-#import packages
 import os
 from pandas import DataFrame
 import re
 import pandas as pd
-#from matplotlib.font_manager import FontProperties
 import matplotlib.pyplot as plt
-#get_ipython().run_line_magic('matplotlib', 'inline')
-#import matplotlib.ticker as mtick
 
 
-# In[3]:
+#input folder path
+url_dir=''
+finish_dir =''
+to_do_dir =''
 
-    
-
-
-# In[6]:
-url_dir='C:/Users/zengwesley/Desktop/雲創專題TOPNET/input_url_txt_file/all links/'
 finish_list =[]
-finish_dir ='C:/Users/zengwesley/Desktop/雲創專題TOPNET/output_network_png_L001_L025/'
 dataname=re.compile(r'.+(?=\.)')
 pngname=re.compile(r'.+(?=\_rate)')
 if os.path.exists(finish_dir):
     for file_name in os.listdir(finish_dir):
         file_name_tmp=pngname.match(file_name)
         finish_list.append(file_name_tmp.group())
+        
 todo_list=[]
-to_do_dir ='C:/Users/zengwesley/Desktop/雲創專題TOPNET/output csv file_L001_L025/'
 if os.path.exists(finish_dir):
     for file_name in os.listdir(to_do_dir):
         file_name_tmp=dataname.match(file_name)
         todo_list.append(file_name_tmp.group())
+        
 todo_task=[]
 for i in todo_list:
     if i not in finish_list:
