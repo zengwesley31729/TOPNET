@@ -9,5 +9,7 @@ processing:
 
  1.setting folder path
  
- 2.put URL data into to_do_url_folder
+ 2.put URL data into input_url_txt_folder
+ 
+ 3.
 
