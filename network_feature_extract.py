@@ -1,25 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
-
-# In[2]:
-
-
+#import packages
 import my_module_original as my
 import networkx as nx
 import numpy as np
-
-#import packages
 import os
 from pandas import DataFrame
 import re
 import pandas as pd
-#from matplotlib.font_manager import FontProperties
 import matplotlib.pyplot as plt
+
+#setting todo file folder path
+to_do_dir =''
 
 dataname=re.compile(r'.+(?=\.)')
 todo_list=[]
-#input todo file folder path
-to_do_dir =''
 if os.path.exists(finish_dir):
     for file_name in os.listdir(to_do_dir):
         file_name_tmp=dataname.match(file_name)
