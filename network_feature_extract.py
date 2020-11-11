@@ -18,7 +18,8 @@ import matplotlib.pyplot as plt
 
 dataname=re.compile(r'.+(?=\.)')
 todo_list=[]
-to_do_dir ='C:/Users/zengwesley/Desktop/output csv file/'
+#input todo file folder path
+to_do_dir =''
 if os.path.exists(finish_dir):
     for file_name in os.listdir(to_do_dir):
         file_name_tmp=dataname.match(file_name)
