@@ -11,7 +11,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-#input folder path
+#setting folder path
 url_dir=''
 finish_dir =''
 to_do_dir =''
