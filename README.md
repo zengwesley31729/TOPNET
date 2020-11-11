@@ -11,5 +11,7 @@ processing:
  
  2.put URL data into input_url_txt_folder
  
- 3.
+ 3.run search_account_from_database_add_filepath.py
+ 
+ 4.network data will be created into 
 
