@@ -5,7 +5,7 @@ data requirements:
  
  2. account database folder
 
-processing:
+# processing:
 
  1. setting folder path
  
